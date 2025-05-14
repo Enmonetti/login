@@ -5,16 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel do Analista</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="background">
     <div class="overlay">
-
-      <div id="loginWeekChartSection">
-        <h2>Gráfico de Logins por Dia da Semana</h2>
-        <canvas id="loginWeekChart" width="400" height="200"></canvas>
-      </div>
 
       <div id="clientSection">
         <h2>Informações dos Clientes</h2>
@@ -60,31 +54,6 @@
   </div>
 
   <script>
-
-    const loginWeekCount = JSON.parse(localStorage.getItem("loginsPorDia")) || [0, 0, 0, 0, 0, 0, 0];
-    const loginWeekChart = document.getElementById("loginWeekChart").getContext("2d");
-
-    new Chart(loginWeekChart, {
-      type: 'bar',
-      data: {
-        labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
-        datasets: [{
-          label: 'Logins por Dia da Semana',
-          data: loginWeekCount,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
     function loadClientData() {
       const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
       const tbody = document.getElementById('clientTableBody');
@@ -116,18 +85,15 @@
       }
     }
 
-
     function expandClientInfo() {
       const details = document.getElementById("clientDetails");
       details.classList.toggle("hidden");
     }
 
-
     function expandPurchaseInfo() {
       const details = document.getElementById("purchaseDetails");
       details.classList.toggle("hidden");
     }
-
 
     function apagarDadosClientes() {
       if (confirm("Tem certeza que deseja apagar todos os dados dos clientes?")) {
@@ -137,11 +103,9 @@
       }
     }
 
- 
     window.onload = () => {
       loadClientData();
     };
-    
   </script>
 </body>
 </html>
