@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +7,11 @@
 body, html {
   height: 100%;
   font-family: Arial, sans-serif;
-  color: #000; 
+  color: #000;
 }
 
-
 .background {
-  background: linear-gradient(to bottom right, #cce7ff, #ffffff);
+  background: linear-gradient(to bottom, #000000, #ffffff);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -34,21 +32,24 @@ body, html {
   gap: 20px;
 }
 
-
 h1, h2 {
   text-align: center;
   margin-bottom: 10px;
   color: #000;
 }
 
-
 #loginSection, #graficoSection, #clientSection, #purchaseSection {
   background-color: #e6f2ff;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: auto;
 }
 
+
+#clientSection, #purchaseSection {
+  min-height: 400px;
+}
 
 #loginSection {
   grid-column: 1;
@@ -70,7 +71,6 @@ h1, h2 {
   grid-row: 2;
 }
 
-
 button {
   background-color: #007bff;
   color: white;
@@ -84,7 +84,6 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
 
 table {
   width: 100%;
@@ -104,7 +103,6 @@ th {
   background-color: #cce7ff;
 }
 
-
 .hidden {
   display: none;
 }
@@ -115,7 +113,6 @@ th {
   max-width: 100%;
 }
 
-
 @media (max-width: 768px) {
   .overlay {
     grid-template-columns: 1fr;
@@ -125,4 +122,9 @@ th {
   #loginSection, #graficoSection, #clientSection, #purchaseSection {
     grid-column: 1;
   }
+}
+#clientSection, #purchaseSection {
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
 }
